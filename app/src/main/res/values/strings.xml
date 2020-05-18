@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RutinApp</string>
+    <string name="registerName">Nombre</string>
+    <string name="registerEmail">Email</string>
+    <string name="registerPsswrd">Contraseña</string>
+    <string name="registerSignUp">Registrar</string>
+    <string name="registerSignIn">Acceder a mi cuenta</string>
+    <string name="loginLogOut">Cerrar Sesión</string>
+
+</resources>
