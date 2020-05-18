@@ -120,7 +120,8 @@ public class SignUpActivity extends AppCompatActivity {
                             //SI SE HAN GUARDADO LOS DATOS DE USUARIO
                             if(task2.isSuccessful()){
                                 //REDIRIGIMOS A UNA ACTIVITY
-                                startActivity(new Intent(this,ProfileActivity.class));
+                                startActivity(new Intent(SignUpActivity.this,ProfileActivity.class));
+                                finish();
                             }else{
                                 //SINO MOSTRAMOS MENSAJE DE ERROR------------------------------------------------------------------------------------------------------
                                 Toast.makeText(SignUpActivity.this,"No se ha podido registrar este Usuario.",Toast.LENGTH_SHORT).show();
