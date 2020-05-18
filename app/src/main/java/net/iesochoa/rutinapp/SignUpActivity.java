@@ -31,6 +31,10 @@ public class SignUpActivity extends AppCompatActivity {
     private String name = "";
     private String email = "";
     private String password = "";
+    private String sex = "";
+    private String age = "";
+    private String height = "";
+    private String weight = "";
 
     //OBJETO FIREBASE AUTH PARA LA IDENTIFICACIÓN DE FIREBASE
     FirebaseAuth mAuth;
@@ -109,6 +113,10 @@ public class SignUpActivity extends AppCompatActivity {
                     map.put("name", name);
                     map.put("email", email);
                     map.put("password", password);
+                    map.put("sex", sex);
+                    map.put("age", age);
+                    map.put("height", height);
+                    map.put("weight", weight);
 
                     //OBTENEMOS LA ID DEL USUARIO QUE SE ACABA DE CREAR
                     String id = mAuth.getCurrentUser().getUid();
@@ -117,24 +125,24 @@ public class SignUpActivity extends AppCompatActivity {
                     mDatabase.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
-                            //SI SE HAN GUARDADO LOS DATOS DE USUARIO
+                            //SI SE HAN GUARDADO LOS DATOS DE USUARIO CON EXITO
                             if(task2.isSuccessful()){
                                 //REDIRIGIMOS A UNA ACTIVITY
                                 startActivity(new Intent(SignUpActivity.this,ProfileActivity.class));
                                 finish();
                             }else{
                                 //SINO MOSTRAMOS MENSAJE DE ERROR------------------------------------------------------------------------------------------------------
-                                Toast.makeText(SignUpActivity.this,"No se ha podido registrar este Usuario.",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUpActivity.this,"No se ha podido registrar este Usuario en la BD.",Toast.LENGTH_SHORT).show();
                                 //------------------------------------------------------------------------------------------------------------------------------------------------------------
                             }
                         }
-                    });
+                    });//FIN mDatabase
 
                 }else{
                     //SINO SE MUESTRA MENSAJE AL USUARIO DICIENDO QUE NO SE PUDO REGISTRAR AL USUARIO
                     Toast.makeText(SignUpActivity.this,"No se ha podido registrar este Usuario.",Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
-    }
+            }//fin onComplete
+        });//FIN mAuth
+    }//FIN registerUser
 }//FIN CLASE SignUpActivity
