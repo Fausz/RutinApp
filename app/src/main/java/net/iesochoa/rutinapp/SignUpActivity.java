@@ -21,8 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
+
+    //OBJETOS VIEW
     private Button btSignUp;
-    private Button btLogIn;
+    private Button btSignIn;
     private EditText etName;
     private EditText etEmail;
     private EditText etPassword;
@@ -53,12 +55,13 @@ public class SignUpActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         //INSTANCIAS DE VIEWS
-        btSignUp = findViewById(R.id.btSignUp);
-        btLogIn = findViewById(R.id.btLogIn);
-        etName = findViewById(R.id.etName);
-        etEmail = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPassword);
+        btSignUp = (Button) findViewById(R.id.btSignUp);
+        btSignIn = (Button) findViewById(R.id.btSignIn);
+        etName = (EditText) findViewById(R.id.etName);
+        etEmail = (EditText) findViewById(R.id.etEmail);
+        etPassword = (EditText) findViewById(R.id.etPassword);
 
+        //EVENTO ONCLICK AL PULSAR EL BOTON REGISTRO
         btSignUp.setOnClickListener(new View.OnClickListener() {
             /**
              * Evento que se usa al hacer click en el boton registro
@@ -90,12 +93,23 @@ public class SignUpActivity extends AppCompatActivity {
 
         });//FIN EVENTO ONCLICK DE btSignUp
 
+        //EVENTO ONCLICK AL PULSAR EL BOTON DE ACCEDER A MI CUENTA
+        btSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //INICIAMOS ACTIVIDAD DE LOGEO
+                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+            }
+        });
     }//FIN onCreate
 
     private void registerUser(){
         /**
-         *MÉTODO PARA REGISTRO DEL USUARIO
+         *MÉTODO PARA EL REGISTRO DEL USUARIO
          */
+
+        //FIREBASE COMPROBARÁ QUE EL CORREO Y CONTRASEÑA SEAN CORRECTOS
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             /**
              * EVENTO QUE COMPRUEBA QUE SE EFECTUE LA VALIDACIÓN
@@ -128,12 +142,13 @@ public class SignUpActivity extends AppCompatActivity {
                             //SI SE HAN GUARDADO LOS DATOS DE USUARIO CON EXITO
                             if(task2.isSuccessful()){
                                 //REDIRIGIMOS A UNA ACTIVITY
-                                startActivity(new Intent(SignUpActivity.this,ProfileActivity.class));
+                                //PONER PROFILEACTIVITY PARA TERMINAR EL REGISTRO---------------------------------------------------------------------------------------------------------
+                                startActivity(new Intent(SignUpActivity.this,MainActivity.class));
                                 finish();
                             }else{
-                                //SINO MOSTRAMOS MENSAJE DE ERROR------------------------------------------------------------------------------------------------------
+                                //SINO MOSTRAMOS MENSAJE DE ERROR
                                 Toast.makeText(SignUpActivity.this,"No se ha podido registrar este Usuario en la BD.",Toast.LENGTH_SHORT).show();
-                                //------------------------------------------------------------------------------------------------------------------------------------------------------------
+
                             }
                         }
                     });//FIN mDatabase
@@ -145,4 +160,17 @@ public class SignUpActivity extends AppCompatActivity {
             }//fin onComplete
         });//FIN mAuth
     }//FIN registerUser
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+        //SI EL USUARIO YA HA INICIADO SESION
+        if(mAuth.getCurrentUser() !=null){
+
+            //INICIAMOS EL MENÚ PRINCIPAL DE LA APP
+            startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+            finish();
+        }
+    }
 }//FIN CLASE SignUpActivity

@@ -6,5 +6,6 @@
     <string name="registerSignUp">Registrar</string>
     <string name="registerSignIn">Acceder a mi cuenta</string>
     <string name="loginLogOut">Cerrar Sesión</string>
+    <string name="loginLogIn">Iniciar Sesión</string>
 
 </resources>
