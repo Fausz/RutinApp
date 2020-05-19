@@ -161,7 +161,7 @@ public class SignUpActivity extends AppCompatActivity {
         });//FIN mAuth
     }//FIN registerUser
 
-    @Override
+    /*@Override
     protected void onStart(){
         super.onStart();
 
@@ -172,5 +172,5 @@ public class SignUpActivity extends AppCompatActivity {
             startActivity(new Intent(SignUpActivity.this, MainActivity.class));
             finish();
         }
-    }
+    }*/
 }//FIN CLASE SignUpActivity
