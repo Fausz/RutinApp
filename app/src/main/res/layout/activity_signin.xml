@@ -10,6 +10,13 @@
     android:padding="20dp">
 
 
+    <ImageView
+        android:id="@+id/imgLogoLogin"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/logus"
+        android:layout_gravity="center" />
+
     <EditText
         android:id="@+id/etEmailLogin"
         android:layout_width="match_parent"
@@ -46,10 +53,10 @@
             android:id="@+id/btSignUpLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:background="@color/colorPrimary"
             android:text="@string/registerSignUp"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="20dp"/>
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 
