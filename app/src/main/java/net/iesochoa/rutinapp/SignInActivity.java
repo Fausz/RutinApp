@@ -18,8 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SignInActivity extends AppCompatActivity {
 
     //OBJETOS VIEW
-    private Button btLogIn;
-    private Button btSignUp;
+    private Button btLogInLogin;
+    private Button btSignUpLogin;
     private EditText etEmailLogin;
     private EditText etPasswordLogin;
 
@@ -39,13 +39,13 @@ public class SignInActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         //INSTANCIAS DE VIEWS
-        btLogIn = (Button) findViewById(R.id.btLogIn);
-        btSignUp = (Button) findViewById(R.id.btSignUp);
+        btLogInLogin = (Button) findViewById(R.id.btLogInLogin);
+        btSignUpLogin = (Button) findViewById(R.id.btSignUpLogin);
         etEmailLogin = (EditText) findViewById(R.id.etEmailLogin);
         etPasswordLogin = (EditText) findViewById(R.id.etPasswordLogin);
 
         //EVENTO ONCLICK AL PULSAR EL BOTÓN INICIAR SESIÓN
-        btLogIn.setOnClickListener(new View.OnClickListener() {
+        btLogInLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -66,7 +66,7 @@ public class SignInActivity extends AppCompatActivity {
         });//FIN btLogIn
 
         //SI SE PULSA AL BOTON REGISTRO
-        btSignUp.setOnClickListener(new View.OnClickListener() {
+        btSignUpLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -97,4 +97,17 @@ public class SignInActivity extends AppCompatActivity {
             }
         });//FIN mAuth
     }//FIN loginUser
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+        //SI EL USUARIO YA HA INICIADO SESION
+        if(mAuth.getCurrentUser() !=null){
+
+            //INICIAMOS EL MENÚ PRINCIPAL DE LA APP
+            startActivity(new Intent(SignInActivity.this, MainActivity.class));
+            finish();
+        }
+    }
 }//FIN CLASE SignInActivity

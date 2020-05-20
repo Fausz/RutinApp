@@ -35,7 +35,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btLogIn"
+            android:id="@+id/btLogInLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
@@ -43,7 +43,7 @@
             android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/btSignUp"
+            android:id="@+id/btSignUpLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
