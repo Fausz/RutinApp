@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     //OBJETOS VIEW
     private Button btLogOutMenu;
+    private Button btWorkouts;
 
     //OBJETO FIREBASE AUTH PARA LA IDENTIFICACIÓN DE FIREBASE
     private FirebaseAuth mAuth;
@@ -23,9 +25,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //INSTANCIAMOS
+        //INSTANCIA DE FIREBASE
         mAuth = FirebaseAuth.getInstance();
 
+        //INSTANCIA DE VIEWS
+        btWorkouts = (Button) findViewById(R.id.btWorkouts);
+
+        //EVENTO ONCLICK DEL BOTON EJERCICIOS
+        btWorkouts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //REDIRECCIÓN A LA PÁGINA DE EJERCICIOS
+                startActivity(new Intent(MainActivity.this, WorkoutsActivity.class));
+            }
+        });
     }//FIN onCreate
 
     @Override
@@ -64,5 +78,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, SignInActivity.class));
         finish();
     }//FIN cerrarSesion
+
 
 }
