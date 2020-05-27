@@ -1,4 +1,4 @@
-package net.iesochoa.rutinapp;
+package net.iesochoa.rutinapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import net.iesochoa.rutinapp.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -143,7 +145,7 @@ public class SignUpActivity extends AppCompatActivity {
                             if(task2.isSuccessful()){
                                 //REDIRIGIMOS A UNA ACTIVITY
                                 //PONER PROFILEACTIVITY PARA TERMINAR EL REGISTRO---------------------------------------------------------------------------------------------------------
-                                startActivity(new Intent(SignUpActivity.this,MainActivity.class));
+                                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                                 finish();
                             }else{
                                 //SINO MOSTRAMOS MENSAJE DE ERROR

@@ -1,4 +1,4 @@
-package net.iesochoa.rutinapp;
+package net.iesochoa.rutinapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import net.iesochoa.rutinapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //REDIRECCIÓN A LA PÁGINA DE EJERCICIOS
                 startActivity(new Intent(MainActivity.this, WorkoutsActivity.class));
+
             }
         });
     }//FIN onCreate

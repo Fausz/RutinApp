@@ -1,4 +1,4 @@
-package net.iesochoa.rutinapp;
+package net.iesochoa.rutinapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
+
+import net.iesochoa.rutinapp.R;
 
 import java.util.HashMap;
 import java.util.Map;
