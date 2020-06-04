@@ -14,7 +14,7 @@
         android:id="@+id/ivLogoLogin"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        app:srcCompat="@drawable/logus"
+        app:srcCompat="@drawable/logo"
         android:layout_gravity="center" />
 
     <EditText

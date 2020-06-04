@@ -7,5 +7,8 @@
     <string name="registerSignIn">Acceder a mi cuenta</string>
     <string name="loginLogOut">Cerrar Sesión</string>
     <string name="loginLogIn">Iniciar Sesión</string>
+    <string name="tvNameDetails">Nombre:</string>
+    <string name="tvGroupDetails">Grupo:</string>
+    <string name="tvDescriptionDetails">Descripción:</string>
 
 </resources>
