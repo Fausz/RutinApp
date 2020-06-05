@@ -45,5 +45,5 @@ public class WorkoutsDetailsActivity extends AppCompatActivity {
         tvGroup.setText(view.getGroup());
         tvDescription.setText(view.getDescription());
         //ivImg.setImageResource(view.getImg());
-    }
-}
+    }//FIN onCreate
+}//FIN CLASE WorkoutsDetailsActivity

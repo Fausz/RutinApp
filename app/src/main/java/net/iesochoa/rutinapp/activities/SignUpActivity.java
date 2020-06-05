@@ -174,5 +174,5 @@ public class SignUpActivity extends AppCompatActivity {
             finish();
         }
     }
-    /**/
+
 }//FIN CLASE SignUpActivity

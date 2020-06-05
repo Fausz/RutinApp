@@ -53,7 +53,7 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
 
         //RETORNAMOS LA VISTA
         return new ViewHolder(view);
-    }
+    }//FIN onCreateViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -78,13 +78,11 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
                 Intent intent = new Intent(mContext,WorkoutsDetailsActivity.class);
                 //SETEO EL OBJETO DEL ITEM SELECCIONADO AL INTENT PARA ENVIAR A LA ACTIVITY WORKOUTSDETAILSACTIVITY MEDIANTE LA VARIABLE EXTRA_MOSTRAR_DATOS(EN LA ACTIVITY DESTINO)
                 intent.putExtra(EXTRA_MOSTRAR_DATOS,workouts);
-
+                //NUEVA ACTIVIDAD EN NUEVA TAREA
                 mContext.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
-
-
-    }
+    }//FIN onBindViewHolder
 
     @Override
     public int getItemCount() {
@@ -115,5 +113,5 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
             this.tvGroupWorkouts = (TextView) view.findViewById(R.id.tvGroupWorkouts);
 
         }
-    }
-}
+    }//FIN CLASE INTERNA ViewHolder
+}//FIN CLASE WorkoutsAdapter

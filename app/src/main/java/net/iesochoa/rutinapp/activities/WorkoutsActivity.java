@@ -84,53 +84,15 @@ public class WorkoutsActivity extends AppCompatActivity {
                         //SE AÑADE UN NUEVO OBJETO A LA LISTA
                         workoutsList.add(new Workouts(name,group,description));
                     }
-                    //INSTANCIA DEL ADAPTER
+
                     //mAdapter = new WorkoutsAdapter(workoutsList, R.layout.item_workouts);
 
+                    //INSTANCIA DEL ADAPTER
                     mAdapter = new WorkoutsAdapter(getApplicationContext(),workoutsList,R.layout.item_workouts);
-                    /////////////////intent( mContext, detallesActivity )
 
                     //RECYCLER VIEW IMPLEMENTA EL ADAPTADOR
                     mRecyclerView.setAdapter(mAdapter);
 
-
-                    /*mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-                        @Override
-                        public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-
-                                View child = mRecyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
-
-                                if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
-
-                                    int position = mRecyclerView.getChildAdapterPosition(child);
-
-                                    NewsFeed n = feedsList.get(position);
-
-                                    Intent intent = new Intent(MainActivitity.this, PantallaInformacion.class);
-                                    intent.putExtra("objectWorkouts", (Serializable) n); //por si quieres pasarle el objeto a la nueva actividad, tendrás que hacerlo serializable
-//                      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                                    startActivity(intent);
-
-                                    return true;
-                                }
-
-
-                            return false;
-                        }
-
-                        @Override
-                        public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-
-                        }
-
-                        @Override
-                        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-                        }
-                    });
-
-*/
                 }else{
                     Toast.makeText(WorkoutsActivity.this,"No se ha encontrado el nodo buscado en la BD.",Toast.LENGTH_SHORT).show();
                 }
@@ -140,6 +102,6 @@ public class WorkoutsActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
-    }
+        });//FIN EVENTO addValueEventListener
+    }//FIN getWorkoutsFromFirebase
 }//FIN WorkoutsActivity

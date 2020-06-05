@@ -33,6 +33,7 @@ public class Workouts implements Serializable {
         this.group=group;
         this.description=description;
     }
+
     //GETTERS Y SETTERS
     public String getName() {
         return name;
@@ -61,4 +62,5 @@ public class Workouts implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-}
+
+}//FIN CLASE Workouts
