@@ -1,6 +1,8 @@
 package net.iesochoa.rutinapp.models;
 
-public class Workouts {
+import java.io.Serializable;
+
+public class Workouts implements Serializable {
 
     //VARIABLES DE WORKOUTS
     private String name;

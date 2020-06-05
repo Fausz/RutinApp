@@ -1,5 +1,7 @@
 package net.iesochoa.rutinapp.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import net.iesochoa.rutinapp.R;
+import net.iesochoa.rutinapp.activities.WorkoutsActivity;
+import net.iesochoa.rutinapp.activities.WorkoutsDetailsActivity;
 import net.iesochoa.rutinapp.models.Workouts;
 
 import java.util.ArrayList;
 
+import static net.iesochoa.rutinapp.activities.WorkoutsDetailsActivity.EXTRA_MOSTRAR_DATOS;
+
 public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHolder> {
+
+    //OBJETO CONTEXTO
+    private Context mContext;
 
     //VARIABLE IDENTIFICADORA
     private int resource;
@@ -21,18 +30,20 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
     //ARRAYLIST CON TODOS LOS OBJETOS EJERCICIO QUE OBTENEMOS DE LA BD
     private ArrayList<Workouts> workoutsList;
 
-    public WorkoutsAdapter(ArrayList<Workouts> workoutsList, int resource){
+    public WorkoutsAdapter(Context applicationContext,ArrayList<Workouts> workoutsList, int resource){
         /**
          * CONSTRUCTOR QUE RECIBE UNA LISTA DE EJERCICIOS
          */
+
+        mContext = applicationContext;
         this.workoutsList = workoutsList;
         this.resource = resource;
-
     }
+
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, final int viewType) {
         /**
          * MÉTODO DONDE SE CREA LA VISTA
          */
@@ -52,11 +63,27 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
          */
 
         //ESTABLECEMOS LOS VALORES QUE OBTENEMOS DE LA BD
-        Workouts workouts = workoutsList.get(position);
+        final Workouts workouts = workoutsList.get(position);
+
 
         holder.tvNameWorkouts.setText(workouts.getName());
         holder.tvGroupWorkouts.setText(workouts.getGroup());
         //FALTAN LAS IMG
+
+        //EVENTO PARA SELECCIONAR UN ITEM DE LA LISTA
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //INTENT CON EL CONTEXTO DE LA ACTIVITY
+                Intent intent = new Intent(mContext,WorkoutsDetailsActivity.class);
+                //SETEO EL OBJETO DEL ITEM SELECCIONADO AL INTENT PARA ENVIAR A LA ACTIVITY WORKOUTSDETAILSACTIVITY MEDIANTE LA VARIABLE EXTRA_MOSTRAR_DATOS(EN LA ACTIVITY DESTINO)
+                intent.putExtra(EXTRA_MOSTRAR_DATOS,workouts);
+
+                mContext.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            }
+        });
+
+
     }
 
     @Override
@@ -69,13 +96,13 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         /**
-         * CLASE INTERNA CON LAS REFERENCIAS DE NUESTRAS VISTAS
+         * CLASE INTERNA CON LAS REFERENCIAS DE NUESTRAS VISTAS A LOS ITEMS
          */
         private TextView tvNameWorkouts;
         private TextView tvGroupWorkouts;
         public View view;
 
-        public ViewHolder(View view) {
+        public ViewHolder(final View view) {
             /**
              * CONSTRUCTOR QUE RECIBE COMO PARÁMETRO UNA VISTA
              */
@@ -86,6 +113,7 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
             //CASTEAMOS LOS VIEWS CON LA REFERENCIA DE LAS VISTAS
             this.tvNameWorkouts = (TextView) view.findViewById(R.id.tvNameWorkouts);
             this.tvGroupWorkouts = (TextView) view.findViewById(R.id.tvGroupWorkouts);
+
         }
     }
 }

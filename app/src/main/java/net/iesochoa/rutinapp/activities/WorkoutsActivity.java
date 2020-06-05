@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +23,7 @@ import net.iesochoa.rutinapp.R;
 import net.iesochoa.rutinapp.adapters.WorkoutsAdapter;
 import net.iesochoa.rutinapp.models.Workouts;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class WorkoutsActivity extends AppCompatActivity {
@@ -36,7 +40,7 @@ public class WorkoutsActivity extends AppCompatActivity {
     //OBJETO FIREBASE PARA EL MANEJO DE LA BASE DE DATOS REALTIME
     private DatabaseReference mDatabase;
 
-    //private FirebaseFirestore mFirestore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +58,7 @@ public class WorkoutsActivity extends AppCompatActivity {
 
         //MÉTODO QUE OBTIENE LOS OBJETOS WORKOUTS DE FIREBASE
         getWorkoutsFromFirebase();
-        //mFirestore = FirebaseFirestore.getInstance();
 
-        //Query query = mFirestore.collection("Workouts");
 
     }//FIN onCreate
     private void getWorkoutsFromFirebase(){
@@ -83,10 +85,52 @@ public class WorkoutsActivity extends AppCompatActivity {
                         workoutsList.add(new Workouts(name,group,description));
                     }
                     //INSTANCIA DEL ADAPTER
-                    mAdapter = new WorkoutsAdapter(workoutsList, R.layout.item_workouts);
+                    //mAdapter = new WorkoutsAdapter(workoutsList, R.layout.item_workouts);
+
+                    mAdapter = new WorkoutsAdapter(getApplicationContext(),workoutsList,R.layout.item_workouts);
+                    /////////////////intent( mContext, detallesActivity )
 
                     //RECYCLER VIEW IMPLEMENTA EL ADAPTADOR
                     mRecyclerView.setAdapter(mAdapter);
+
+
+                    /*mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+                        @Override
+                        public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+
+                                View child = mRecyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+
+                                if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
+
+                                    int position = mRecyclerView.getChildAdapterPosition(child);
+
+                                    NewsFeed n = feedsList.get(position);
+
+                                    Intent intent = new Intent(MainActivitity.this, PantallaInformacion.class);
+                                    intent.putExtra("objectWorkouts", (Serializable) n); //por si quieres pasarle el objeto a la nueva actividad, tendrás que hacerlo serializable
+//                      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                                    startActivity(intent);
+
+                                    return true;
+                                }
+
+
+                            return false;
+                        }
+
+                        @Override
+                        public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+
+                        }
+
+                        @Override
+                        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+                        }
+                    });
+
+*/
                 }else{
                     Toast.makeText(WorkoutsActivity.this,"No se ha encontrado el nodo buscado en la BD.",Toast.LENGTH_SHORT).show();
                 }
