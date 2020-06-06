@@ -4,28 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#209E8B"
     tools:context=".activities.MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="256dp"
-        android:text="Main"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btWorkouts"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:background="#A9F4E9"
+        android:text="VER EJERCICIOS"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcPlus"
+        app:layout_constraintStart_toEndOf="@+id/ivIcPlus"
+        app:layout_constraintTop_toTopOf="@+id/ivIcPlus" />
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="308dp"
-        android:text="EJERCICIOS"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:text="CREAR RUTINA"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="164dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MODIFICAR RUTINA"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="259dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ELIMINAR RUTINA"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <ImageView
+        android:id="@+id/ivIcPlus"
+        android:layout_width="49dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="64dp"
+        android:background="#27585C"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
+        app:srcCompat="@drawable/ic_edit_black_24dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
