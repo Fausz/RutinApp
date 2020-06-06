@@ -82,6 +82,7 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
         Glide
                 //CARGA EL CONTEXTO
                 .with(mContext)
+
                 //CARGA LA IMAGEN
                 .load(workouts.getImg())
 
@@ -111,8 +112,6 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
 
                 //DIRECCIÓN DE LA IMAGEN
                 .into(holder.ivImgWorkouts);
-
-        //holder.ivImgWorkouts.setImage(workouts.getImg());
 
 
         //EVENTO PARA SELECCIONAR UN ITEM DE LA LISTA
