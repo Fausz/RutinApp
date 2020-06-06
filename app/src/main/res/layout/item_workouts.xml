@@ -14,8 +14,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="304dp"
+            android:layout_marginTop="72dp"
+            android:visibility="visible"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
-            android:id="@+id/ivWorkouts"
+            android:id="@+id/ivImgWorkouts"
             android:layout_width="184dp"
             android:layout_height="106dp"
             android:layout_marginStart="16dp"
@@ -25,7 +35,7 @@
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
             card_view:layout_constraintVertical_bias="0.0"
-            card_view:srcCompat="@drawable/logo" />
+             />
 
         <TextView
             android:id="@+id/tvNameWorkouts"
@@ -34,8 +44,8 @@
             android:layout_marginStart="16dp"
             android:text="Ejercicio"
             android:textSize="18sp"
-            card_view:layout_constraintStart_toEndOf="@+id/ivWorkouts"
-            card_view:layout_constraintTop_toTopOf="@+id/ivWorkouts" />
+            card_view:layout_constraintStart_toEndOf="@+id/ivImgWorkouts"
+            card_view:layout_constraintTop_toTopOf="@+id/ivImgWorkouts" />
 
         <TextView
             android:id="@+id/tvGroupWorkouts"
@@ -44,14 +54,15 @@
             android:layout_marginStart="16dp"
             android:text="Musculo"
             android:textSize="18sp"
-            card_view:layout_constraintBottom_toBottomOf="@+id/ivWorkouts"
-            card_view:layout_constraintStart_toEndOf="@+id/ivWorkouts" />
+            card_view:layout_constraintBottom_toBottomOf="@+id/ivImgWorkouts"
+            card_view:layout_constraintStart_toEndOf="@+id/ivImgWorkouts" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivIcDesp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:visibility="visible"
             card_view:layout_constraintBottom_toTopOf="@+id/tvGroupWorkouts"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/tvNameWorkouts"

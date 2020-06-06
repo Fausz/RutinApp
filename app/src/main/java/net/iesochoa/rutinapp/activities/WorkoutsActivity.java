@@ -80,9 +80,10 @@ public class WorkoutsActivity extends AppCompatActivity {
                         String name = ds.child("Name").getValue().toString();
                         String group = ds.child("Group").getValue().toString();
                         String description = ds.child("Description").getValue().toString();
+                        String img = ds.child("Img").getValue().toString();
 
                         //SE AÑADE UN NUEVO OBJETO A LA LISTA
-                        workoutsList.add(new Workouts(name,group,description));
+                        workoutsList.add(new Workouts(name,group,description,img));
                     }
 
                     //mAdapter = new WorkoutsAdapter(workoutsList, R.layout.item_workouts);

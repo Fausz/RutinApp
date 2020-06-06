@@ -28,11 +28,11 @@ public class Workouts implements Serializable {
         this.img=img;
     }
 
-    public Workouts(String name, String group, String description){
+    /*public Workouts(String name, String group, String description){
         this.name=name;
         this.group=group;
         this.description=description;
-    }
+    }*/
 
     //GETTERS Y SETTERS
     public String getName() {
