@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".activities.AboutUsActivity">
+
+    <TextView
+        android:id="@+id/tvTitleAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="¿QUIENES SOMOS?"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAutorTitleAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:text="Autor:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleAboutUs" />
+
+    <TextView
+        android:id="@+id/tvNameAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAutorTitleAboutUs"
+        app:layout_constraintStart_toEndOf="@+id/tvAutorTitleAboutUs"
+        app:layout_constraintTop_toTopOf="@+id/tvAutorTitleAboutUs" />
+
+    <TextView
+        android:id="@+id/tvCurseTitleAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Curso:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvDescriptionAboutUs"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionAboutUs" />
+
+    <TextView
+        android:id="@+id/tvSubNameAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameAboutUs"
+        app:layout_constraintStart_toEndOf="@+id/tvNameAboutUs"
+        app:layout_constraintTop_toTopOf="@+id/tvNameAboutUs" />
+
+    <TextView
+        android:id="@+id/tvCurseAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCurseTitleAboutUs"
+        app:layout_constraintStart_toEndOf="@+id/tvCurseTitleAboutUs"
+        app:layout_constraintTop_toTopOf="@+id/tvCurseTitleAboutUs"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvDescriptionTitleAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Descripción:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvAutorTitleAboutUs"
+        app:layout_constraintTop_toBottomOf="@+id/tvAutorTitleAboutUs" />
+
+    <TextView
+        android:id="@+id/tvDescriptionAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/tvDescriptionTitleAboutUs"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionTitleAboutUs" />
+
+    <TextView
+        android:id="@+id/tvAddressTitleAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Dirección:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvCenterTitleAboutUs"
+        app:layout_constraintTop_toBottomOf="@+id/tvCenterTitleAboutUs" />
+
+    <TextView
+        android:id="@+id/tvAddressAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAddressTitleAboutUs"
+        app:layout_constraintStart_toEndOf="@+id/tvAddressTitleAboutUs"
+        app:layout_constraintTop_toTopOf="@+id/tvAddressTitleAboutUs" />
+
+    <TextView
+        android:id="@+id/tvNumPhoneTitleAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Teléfono:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvAddressTitleAboutUs"
+        app:layout_constraintStart_toStartOf="@+id/tvAddressTitleAboutUs"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressTitleAboutUs" />
+
+    <TextView
+        android:id="@+id/tvNumAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNumPhoneTitleAboutUs"
+        app:layout_constraintStart_toEndOf="@+id/tvNumPhoneTitleAboutUs"
+        app:layout_constraintTop_toTopOf="@+id/tvNumPhoneTitleAboutUs" />
+
+    <TextView
+        android:id="@+id/tvCenterTitleAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Centro:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvCurseTitleAboutUs"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurseTitleAboutUs" />
+
+    <TextView
+        android:id="@+id/tvCenterAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCenterTitleAboutUs"
+        app:layout_constraintStart_toEndOf="@+id/tvCenterTitleAboutUs"
+        app:layout_constraintTop_toTopOf="@+id/tvCenterTitleAboutUs" />
+</androidx.constraintlayout.widget.ConstraintLayout>

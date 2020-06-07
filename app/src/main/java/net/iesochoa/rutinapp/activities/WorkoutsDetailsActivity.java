@@ -97,7 +97,7 @@ public class WorkoutsDetailsActivity extends AppCompatActivity {
 
             //CASO BOTON SOBRE NOSOTROS
             case R.id.btMenuItemAbout:
-                Toast.makeText(WorkoutsDetailsActivity.this,"Función Sobre Nosotros en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, AboutUsActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);
