@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -18,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
     //OBJETOS VIEW
     private Button btLogOutMenu;
     private Button btWorkouts;
+
+    private Button btNewWorkout;
+    private Button btEditWorkout;
+    private Button btDelWorkout;
+    private ImageView ivIcSeeWorkouts;
+    private ImageView ivIcNewWorkout;
+    private ImageView ivIcEditWorkout;
+    private ImageView ivIcDelWorkout;
+    private ImageView ivLogoMain;
 
     //OBJETO FIREBASE AUTH PARA LA IDENTIFICACIÓN DE FIREBASE
     private FirebaseAuth mAuth;
@@ -32,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
 
         //INSTANCIA DE VIEWS
         btWorkouts = (Button) findViewById(R.id.btWorkouts);
+        btNewWorkout = (Button) findViewById(R.id.btNewWorkout);
+        btEditWorkout = (Button) findViewById(R.id.btEditWorkout);
+        btDelWorkout = (Button) findViewById(R.id.btDelWorkout);
+        ivLogoMain = (ImageView) findViewById(R.id.ivLogoMain);
+        ivIcNewWorkout = (ImageView) findViewById(R.id.ivIcNewWorkout);
+        ivIcEditWorkout = (ImageView) findViewById(R.id.ivIcEditWorkout);
+        ivIcDelWorkout = (ImageView) findViewById(R.id.ivIcDelWorkout);
+        ivIcSeeWorkouts = (ImageView) findViewById(R.id.ivIcSeeWorkouts);
 
         //EVENTO ONCLICK DEL BOTON EJERCICIOS
         btWorkouts.setOnClickListener(new View.OnClickListener() {
@@ -43,44 +62,76 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }//FIN onCreate
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        /**
-         * MÉTODO PARA INFLAR EL MENÚ, ESTO AGREGA ELEMENTOS A LA BARRA DE ACCIÓN SI ESTÁ PRESENTE.
-         */
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }//FIN onCreateOptionsMenu
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        /**
-         * MÉTODO PARA ASOCIAR UN METODO ONCLICK EN EL VIEW QUE SE ASOCIE SU ID.
-         */
-        switch (item.getItemId()) {
-            //CASO BOTON CERRAR SESIÓN
-            case R.id.btLogOutMenu:
-                cerrarSesion();
-                return true;
+        //EVENTO ONCLICK DEL BOTON CREAR RUTINA
+        btNewWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        }
-        return super.onOptionsItemSelected(item);
-    }//FIN onOptionsItemSelected
+                Toast.makeText(MainActivity.this,"Función en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
 
-    private void cerrarSesion(){
-        /**
-         * MÉTODO PARA CERRAR SESIÓN
-         */
+            }
+        });
 
-        //SE CIERRA SESIÓN
-        mAuth.signOut();
 
-        //REDIRECCIÓN A LA PÁGINA DE LOGIN
-        startActivity(new Intent(MainActivity.this, SignInActivity.class));
-        finish();
-    }//FIN cerrarSesion
+        //EVENTO ONCLICK DEL BOTON MODIFICAR RUTINA
+        btEditWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this,"Función en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        //EVENTO ONCLICK DEL BOTON ELIMINAR RUTINA
+        btDelWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this,"Función en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            /**
+             * MÉTODO PARA INFLAR EL MENÚ, ESTO AGREGA ELEMENTOS A LA BARRA DE ACCIÓN SI ESTÁ PRESENTE.
+             */
+            getMenuInflater().inflate(R.menu.menu, menu);
+            return true;
+        }//FIN onCreateOptionsMenu
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            /**
+             * MÉTODO PARA ASOCIAR UN METODO ONCLICK EN EL VIEW QUE SE ASOCIE SU ID.
+             */
+            switch (item.getItemId()) {
+                //CASO BOTON CERRAR SESIÓN
+                case R.id.btLogOutMenu:
+                    cerrarSesion();
+                    return true;
+
+            }
+            return super.onOptionsItemSelected(item);
+        }//FIN onOptionsItemSelected
+
+        private void cerrarSesion(){
+            /**
+             * MÉTODO PARA CERRAR SESIÓN
+             */
+
+            //SE CIERRA SESIÓN
+            mAuth.signOut();
+
+            //REDIRECCIÓN A LA PÁGINA DE LOGIN
+            startActivity(new Intent(MainActivity.this, SignInActivity.class));
+            finish();
+        }//FIN cerrarSesion
 
 
 }//FIN CLASE MAIN ACTIVITY

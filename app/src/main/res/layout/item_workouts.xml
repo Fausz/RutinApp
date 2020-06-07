@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card_view:cardBackgroundColor="@android:color/holo_orange_light"
+    card_view:cardBackgroundColor="@color/color2"
     card_view:cardCornerRadius="16dp"
     card_view:cardElevation="4dp"
     card_view:cardMaxElevation="2dp"
@@ -34,8 +34,7 @@
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.0"
-             />
+            card_view:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tvNameWorkouts"
@@ -44,6 +43,7 @@
             android:layout_marginStart="16dp"
             android:text="Ejercicio"
             android:textSize="18sp"
+            android:textStyle="bold"
             card_view:layout_constraintStart_toEndOf="@+id/ivImgWorkouts"
             card_view:layout_constraintTop_toTopOf="@+id/ivImgWorkouts" />
 
@@ -54,6 +54,7 @@
             android:layout_marginStart="16dp"
             android:text="Musculo"
             android:textSize="18sp"
+            android:textStyle="bold"
             card_view:layout_constraintBottom_toBottomOf="@+id/ivImgWorkouts"
             card_view:layout_constraintStart_toEndOf="@+id/ivImgWorkouts" />
 

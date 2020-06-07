@@ -4,52 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#209E8B"
+    android:background="@color/color1"
     tools:context=".activities.MainActivity">
+
+    <ImageView
+        android:id="@+id/ivLogoMain"
+        android:layout_width="323dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/ivIcSeeWorkouts"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoMain"
+        app:srcCompat="@drawable/ic_search_black_24dp" />
 
     <Button
         android:id="@+id/btWorkouts"
         android:layout_width="285dp"
         android:layout_height="50dp"
-        android:background="#A9F4E9"
+        android:background="@color/color2"
         android:text="VER EJERCICIOS"
-        app:layout_constraintBottom_toBottomOf="@+id/ivIcPlus"
-        app:layout_constraintStart_toEndOf="@+id/ivIcPlus"
-        app:layout_constraintTop_toTopOf="@+id/ivIcPlus" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CREAR RUTINA"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="164dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MODIFICAR RUTINA"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="259dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ELIMINAR RUTINA"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="352dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcSeeWorkouts"
+        app:layout_constraintStart_toEndOf="@+id/ivIcSeeWorkouts"
+        app:layout_constraintTop_toTopOf="@+id/ivIcSeeWorkouts" />
 
     <ImageView
-        android:id="@+id/ivIcPlus"
-        android:layout_width="49dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="64dp"
-        android:background="#27585C"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/ivIcNewWorkout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/ivIcSeeWorkouts"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcSeeWorkouts"
+        app:srcCompat="@drawable/ic_add_circle_outline_black_24dp" />
+
+    <Button
+        android:id="@+id/btNewWorkout"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:background="@color/color2"
+        android:text="CREAR RUTINA"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcNewWorkout"
+        app:layout_constraintStart_toEndOf="@+id/ivIcNewWorkout"
+        app:layout_constraintTop_toTopOf="@+id/ivIcNewWorkout" />
+
+    <ImageView
+        android:id="@+id/ivIcEditWorkout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/ivIcNewWorkout"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcNewWorkout"
         app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+    <Button
+        android:id="@+id/btEditWorkout"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:background="@color/color2"
+        android:text="MODIFICAR RUTINA"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcEditWorkout"
+        app:layout_constraintStart_toEndOf="@+id/ivIcEditWorkout"
+        app:layout_constraintTop_toTopOf="@+id/ivIcEditWorkout" />
+
+    <ImageView
+        android:id="@+id/ivIcDelWorkout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/ivIcEditWorkout"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcEditWorkout"
+        app:srcCompat="@drawable/ic_delete_black_24dp" />
+
+    <Button
+        android:id="@+id/btDelWorkout"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:background="@color/color2"
+        android:text="ELIMINAR RUTINA"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcDelWorkout"
+        app:layout_constraintStart_toEndOf="@+id/ivIcDelWorkout"
+        app:layout_constraintTop_toTopOf="@+id/ivIcDelWorkout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

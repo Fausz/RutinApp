@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/color2"
     tools:context=".activities.WorkoutsDetailsActivity">
 
     <ImageView
@@ -32,9 +32,10 @@
         android:id="@+id/tvNameWkDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toEndOf="@+id/tvNameDetails"
         app:layout_constraintTop_toBottomOf="@+id/ivImgWkDetails" />
 
@@ -55,6 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="@+id/tvGroupDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvGroupDetails" />
@@ -77,6 +79,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescriptionDetails" />
 </androidx.constraintlayout.widget.ConstraintLayout>
