@@ -148,7 +148,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
             //CASO BOTON SOBRE NOSOTROS
             case R.id.btMenuItemAbout:
-                startActivity(new Intent(this, AboutUsActivity.class));
+                Toast.makeText(AboutUsActivity.this, "Ya estás en Sobre Nosotros!.", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);

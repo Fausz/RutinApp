@@ -123,7 +123,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             //CASO BOTON PERFIL
             case R.id.btMenuItemProfile:
-                startActivity(new Intent(this, ProfileActivity.class));
+                Toast.makeText(ProfileActivity.this, "Ya estás en Profile!.", Toast.LENGTH_SHORT).show();
                 return true;
 
             //CASO BOTON SOBRE NOSOTROS
