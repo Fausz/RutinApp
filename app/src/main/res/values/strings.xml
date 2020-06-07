@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">RutinApp</string>
+
     <!--SingUpActivity y SingInActivity-->
     <string name="registerName">Nombre</string>
     <string name="registerEmail">Email</string>
@@ -7,6 +8,9 @@
     <string name="registerSignUp">Registrar</string>
     <string name="registerSignIn">Acceder a mi cuenta</string>
     <string name="loginLogIn">Iniciar Sesión</string>
+    <string name="etHeightLogUp">Altura</string>
+    <string name="etPassword2LogUp">Repite la contraseña</string>
+    <string name="etSubNameLogUp">Apellidos</string>
 
     <!--Main-->
     <string name="btWorkoutsMain">VER EJERCICIOS</string>
@@ -28,6 +32,22 @@
     <string name="tvNameDetails">Nombre:</string>
     <string name="tvGroupDetails">Grupo:</string>
     <string name="tvDescriptionDetails">Descripción:</string>
-    <string name="tvText">TextView</string>
+
+    <!--AboutUs-->
+    <string name="tvTitleAboutUs">¿QUIENES SOMOS?</string>
+    <string name="tvAutorTitleAboutUs">Autor:</string>
+    <string name="tvDescriptionTitleAboutUs">Descripción:</string>
+    <string name="tvAddressTitleAboutUs">Dirección:</string>
+    <string name="tvNumPhoneTitleAboutUs">Teléfono:</string>
+    <string name="tvCenterTitleAboutUs">Centro:</string>
+
+    <!--Profile-->
+
+    <string name="tvText">Texto</string>
+    <string name="tvTittleProfile">PERFIL</string>
+    <string name="tvTitleNameProfile">Nombre:</string>
+    <string name="tvTitleSubNameProfile">Apellidos:</string>
+    <string name="tvTitleEmailProfile">Correo:</string>
+
 
 </resources>

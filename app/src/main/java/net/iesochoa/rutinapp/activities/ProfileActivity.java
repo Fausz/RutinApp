@@ -1,97 +1,149 @@
 package net.iesochoa.rutinapp.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import net.iesochoa.rutinapp.R;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ProfileActivity extends AppCompatActivity {
 
-    private EditText etAge;
-    private EditText etHeight;
-    private EditText etWeight;
-    private RadioGroup rgSex;
-    private RadioButton rbMan;
-    private RadioButton rbWoman;
-    private Button btGuardar;
+    //VARIABLES CONTENEDORAS
+    private TextView tvNameProfile;
+    private TextView tvSubNameProfile;
+    private TextView tvEmailProfile;
+
+    //OBJETO FIREBASE AUTH PARA LA IDENTIFICACIÓN DE FIREBASE
+    private FirebaseAuth mAuth;
+
+    //OBJETO FIREBASE PARA EL MANEJO DE LA BASE DE DATOS REALTIME
+    private DatabaseReference mDatabase;
 
     //VARIABLES DE LOS DATOS QUE VAMOS A REGISTRAR
     private String name = "";
     private String email = "";
-    private String password = "";
-    private String sex = "";
-    private String age = "";
-    private String height = "";
-    private String weight = "";
+    private String subName = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        etAge = (EditText) findViewById(R.id.etAge);
-        etHeight = (EditText) findViewById(R.id.etHeight);
-        etWeight = (EditText) findViewById(R.id.etWeight);
-        rgSex = (RadioGroup) findViewById(R.id.rgSex);
-        rbMan = (RadioButton) findViewById(R.id.rbMan);
-        rbWoman = (RadioButton) findViewById(R.id.rbWoman);
-        btGuardar = (Button) findViewById(R.id.btGuardar);
+        //DECLARACIÓN DE REFERENCIA A LA BD
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        btGuardar.setOnClickListener(new View.OnClickListener() {
-            /**
-             * Evento que se usa al hacer click en el boton registro
-             * @param view
-             */
+        //INSTANCIAS DE VIEWS
+        tvNameProfile = (TextView) findViewById(R.id.tvNameProfile);
+        tvSubNameProfile = (TextView) findViewById(R.id.tvSubNameProfile);
+        tvEmailProfile = (TextView) findViewById(R.id.tvEmailProfile);
+
+        getDetailsProfile();
+
+    }
+
+    void getDetailsProfile(){
+
+        /**
+         * MÉTODO QUE OBTIENE LOS DATOS DE FIREBASE
+         */
+
+        //REFERENCIA AL NODO EJERCICIOS DE FIREBASE
+        mDatabase.child("Users").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //SI EL NODO HIJO EXISTE
+                if(dataSnapshot.exists()){
+                    //RECORREMOS CON UN FOREACH TODOS LOS OBJETOS USERS
+                    for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                        //GUARDAMOS EN VARIABLES EL CONTENIDO DEL OBJETO
+                        email = ds.child("Email").getValue().toString();
+                        name = ds.child("Name").getValue().toString();
+                        subName = ds.child("SubName").getValue().toString();
 
-                //SE ASIGNA EL VALOR DE LOS EDIT TEXT A LAS VARIABLES CREADAS AL PRINCIPIO
-                age = etAge.getText().toString();
-                height = etHeight.getText().toString();
-                weight = etWeight.getText().toString();
-
-
-/*
-                //SI NINGÚN CAMPO DEL REGISTRO NO ESTA VACIO SE PROCEDE
-                if(!name.isEmpty() && !email.isEmpty() && !password.isEmpty()){
-
-                    if(password.length() >=6){
-                        //SI EL USUARIO INTRODUCE 6 CARACTERES O MÁS SE PROCEDE AL REGISTRO
-                        registerUser();
-                    }else{
-                        //SI NO HAY ALMENOS 6 CARACTERES NO SERÁ VALIDA LA CONTRASEÑA
-                        Toast.makeText(ProfileActivity.this,"La contraseña tiene que tener almenos 6 caracteres",Toast.LENGTH_SHORT).show();
                     }
-                    //SI HAY UN CAMPO DE REGISTRO VACÍO SE MUESTRA ERROR
-                }else{
-                    Toast.makeText(ProfileActivity.this,"Debes de rellenar todos los campos.",Toast.LENGTH_SHORT).show();
-                }
-                */
+                        //SETEO DE VARIABLES EN OBJETOS VIEW
+                        tvNameProfile.setText(name);
+                        tvSubNameProfile.setText(subName);
+                        tvEmailProfile.setText(email);
 
+                }else{
+                    Toast.makeText(ProfileActivity.this,"No se ha encontrado el nodo buscado en la BD.",Toast.LENGTH_SHORT).show();
+                }
             }
 
-        });//FIN EVENTO ONCLICK DE btGuardar
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });//FIN EVENTO addValueEventListener
 
+    }//FIN getDetailsAboutUs
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //OPCIONES DEL MENÚ
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /**
+         * MÉTODO PARA INFLAR EL MENÚ
+         */
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
 
-        Map<String,Object> map = new HashMap<>();
-
-        //SE ASIGNAN LOS VALORES AL MAPA
-        map.put("name", name);
-        map.put("email", email);
-        map.put("password", password);
-        map.put("sex", sex);
-        map.put("age", age);
-        map.put("height", height);
-        map.put("weight", weight);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        /**
+         * MÉTODO PARA ASOCIAR UN METODO ONCLICK EN EL VIEW QUE SE ASOCIE SU ID.
+         */
+        switch (item.getItemId()) {
+            //CASO BOTON CERRAR SESIÓN
+            case R.id.btMenuItemLogOut:
+                cerrarSesion();
+                return true;
+
+            //CASO BOTON INICIO
+            case R.id.btMenuItemHome:
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
+
+            //CASO BOTON PERFIL
+            case R.id.btMenuItemProfile:
+                startActivity(new Intent(this, ProfileActivity.class));
+                return true;
+
+            //CASO BOTON SOBRE NOSOTROS
+            case R.id.btMenuItemAbout:
+                startActivity(new Intent(this, AboutUsActivity.class));
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }//FIN onOptionsItemSelected
+
+    private void cerrarSesion(){
+        /**
+         * MÉTODO PARA CERRAR SESIÓN
+         */
+
+        //SE CIERRA SESIÓN
+        mAuth.signOut();
+
+        //REDIRECCIÓN A LA PÁGINA DE LOGIN
+        startActivity(new Intent(ProfileActivity.this, SignInActivity.class));
+        finish();
+    }//FIN cerrarSesion
 }

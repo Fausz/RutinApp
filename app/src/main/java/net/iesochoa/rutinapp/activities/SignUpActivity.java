@@ -28,17 +28,17 @@ public class SignUpActivity extends AppCompatActivity {
     private Button btSignUp;
     private Button btSignIn;
     private EditText etName;
+    private EditText etSubName;
     private EditText etEmail;
-    private EditText etPassword;
+    private EditText etPassword1;
+    private EditText etPassword2;
 
     //VARIABLES DE LOS DATOS QUE VAMOS A REGISTRAR
     private String name = "";
     private String email = "";
-    private String password = "";
-    private String sex = "";
-    private String age = "";
-    private String height = "";
-    private String weight = "";
+    private String password1 = "";
+    private String password2 = "";
+    private String subName = "";
 
     //OBJETO FIREBASE AUTH PARA LA IDENTIFICACIÓN DE FIREBASE
     FirebaseAuth mAuth;
@@ -59,9 +59,11 @@ public class SignUpActivity extends AppCompatActivity {
         //INSTANCIAS DE VIEWS
         btSignUp = (Button) findViewById(R.id.btSignUp);
         btSignIn = (Button) findViewById(R.id.btSignIn);
-        etName = (EditText) findViewById(R.id.etName);
-        etEmail = (EditText) findViewById(R.id.etEmail);
-        etPassword = (EditText) findViewById(R.id.etPassword);
+        etName = (EditText) findViewById(R.id.etNameLogUp);
+        etSubName = (EditText) findViewById(R.id.etSubNameLogUp);
+        etEmail = (EditText) findViewById(R.id.etEmailLogUp);
+        etPassword1 = (EditText) findViewById(R.id.etPassword1LogUp);
+        etPassword2 = (EditText) findViewById(R.id.etPassword2LogUp);
 
         //EVENTO ONCLICK AL PULSAR EL BOTON REGISTRO
         btSignUp.setOnClickListener(new View.OnClickListener() {
@@ -75,19 +77,27 @@ public class SignUpActivity extends AppCompatActivity {
                 //SE ASIGNA EL VALOR DE LOS EDIT TEXT A LAS VARIABLES CREADAS AL PRINCIPIO
                 name = etName.getText().toString();
                 email = etEmail.getText().toString();
-                password = etPassword.getText().toString();
+                password1 = etPassword1.getText().toString();
+                password2= etPassword2.getText().toString();
+                subName = etSubName.getText().toString();
+
 
                 //SI NINGÚN CAMPO DEL REGISTRO NO ESTA VACIO SE PROCEDE
-                if(!name.isEmpty() && !email.isEmpty() && !password.isEmpty()){
+                if(!name.isEmpty() && !email.isEmpty() && !password1.isEmpty() && !password2.isEmpty() && !subName.isEmpty()) {
 
-                    if(password.length() >=6){
-                        //SI EL USUARIO INTRODUCE 6 CARACTERES O MÁS SE PROCEDE AL REGISTRO
-                        registerUser();
+                    if (password1.length() >= 6 || password2.length() >= 6) {
+                        if(password1.equals(password2)){
+                            //SI EL USUARIO INTRODUCE 6 CARACTERES O MÁS SE PROCEDE AL REGISTRO
+                            registerUser();
+                        } else {
+                            Toast.makeText(SignUpActivity.this, "La contraseñas no son iguales.", Toast.LENGTH_SHORT).show();
+                        }
+
                     }else{
                         //SI NO HAY ALMENOS 6 CARACTERES NO SERÁ VALIDA LA CONTRASEÑA
-                        Toast.makeText(SignUpActivity.this,"La contraseña tiene que tener almenos 6 caracteres",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this, "La contraseña tiene que tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
                     }
-                //SI HAY UN CAMPO DE REGISTRO VACÍO SE MUESTRA ERROR
+                    //SI HAY UN CAMPO DE REGISTRO VACÍO SE MUESTRA ERROR
                 }else{
                     Toast.makeText(SignUpActivity.this,"Debes de rellenar todos los campos.",Toast.LENGTH_SHORT).show();
                 }
@@ -112,7 +122,7 @@ public class SignUpActivity extends AppCompatActivity {
          */
 
         //FIREBASE COMPROBARÁ QUE EL CORREO Y CONTRASEÑA SEAN CORRECTOS
-        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(email,password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             /**
              * EVENTO QUE COMPRUEBA QUE SE EFECTUE LA VALIDACIÓN
              * @param task
@@ -126,13 +136,10 @@ public class SignUpActivity extends AppCompatActivity {
                     Map<String,Object> map = new HashMap<>();
 
                     //SE ASIGNAN LOS VALORES AL MAPA
-                    map.put("name", name);
-                    map.put("email", email);
-                    map.put("password", password);
-                    map.put("sex", sex);
-                    map.put("age", age);
-                    map.put("height", height);
-                    map.put("weight", weight);
+                    map.put("Name", name);
+                    map.put("SubName", subName);
+                    map.put("Email", email);
+                    map.put("Password", password1);
 
                     //OBTENEMOS LA ID DEL USUARIO QUE SE ACABA DE CREAR
                     String id = mAuth.getCurrentUser().getUid();

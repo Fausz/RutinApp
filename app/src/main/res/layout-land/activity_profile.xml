@@ -8,14 +8,13 @@
     tools:context=".activities.ProfileActivity">
 
     <TextView
-        android:id="@+id/tvTittleProfile"
+        android:id="@+id/tvTittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="68dp"
-        android:text="@string/tvTittleProfile"
+        android:text="PERFIL"
         android:textSize="36sp"
         android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,13 +22,13 @@
         android:id="@+id/tvTitleNameProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
-        android:text="@string/tvTitleNameProfile"
+        android:text="Nombre:"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTittleProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTittle" />
 
     <TextView
         android:id="@+id/tvSubNameProfile"
@@ -47,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="@string/tvTitleSubNameProfile"
+        android:text="Apellidos:"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="@+id/tvTitleNameProfile"
@@ -69,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="@string/tvTitleEmailProfile"
+        android:text="Correo:"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="@+id/tvTitleSubNameProfile"

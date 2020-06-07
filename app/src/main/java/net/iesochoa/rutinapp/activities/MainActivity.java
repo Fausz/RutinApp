@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //CASO BOTON PERFIL
                 case R.id.btMenuItemProfile:
-                    Toast.makeText(MainActivity.this,"Función en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, ProfileActivity.class));
                     return true;
 
                 //CASO BOTON SOBRE NOSOTROS

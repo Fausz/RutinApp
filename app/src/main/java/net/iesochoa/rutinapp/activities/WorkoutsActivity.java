@@ -143,7 +143,7 @@ public class WorkoutsActivity extends AppCompatActivity {
 
             //CASO BOTON PERFIL
             case R.id.btMenuItemProfile:
-                Toast.makeText(WorkoutsActivity.this,"Función Perfil en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ProfileActivity.class));
                 return true;
 
             //CASO BOTON SOBRE NOSOTROS

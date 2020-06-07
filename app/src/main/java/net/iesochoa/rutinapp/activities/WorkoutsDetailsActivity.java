@@ -37,15 +37,7 @@ public class WorkoutsDetailsActivity extends AppCompatActivity {
          * CONSTRUCTOR POR DEFECTO
          */
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        /**
-         * MÉTODO PARA INFLAR EL MENÚ
-         */
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
 
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +67,16 @@ public class WorkoutsDetailsActivity extends AppCompatActivity {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //OPCIONES DEL MENÚ
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /**
+         * MÉTODO PARA INFLAR EL MENÚ
+         */
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         /**
          * MÉTODO PARA ASOCIAR UN METODO ONCLICK EN EL VIEW QUE SE ASOCIE SU ID.
@@ -92,7 +94,7 @@ public class WorkoutsDetailsActivity extends AppCompatActivity {
 
             //CASO BOTON PERFIL
             case R.id.btMenuItemProfile:
-                Toast.makeText(WorkoutsDetailsActivity.this,"Función Perfil en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ProfileActivity.class));
                 return true;
 
             //CASO BOTON SOBRE NOSOTROS
