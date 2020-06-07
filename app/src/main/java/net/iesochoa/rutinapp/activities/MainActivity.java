@@ -129,12 +129,12 @@ public class MainActivity extends AppCompatActivity {
 
                 //CASO BOTON INICIO
                 case R.id.btMenuItemHome:
-                    startActivity(new Intent(this, MainActivity.class));
+                    Toast.makeText(MainActivity.this, "Ya estás en Inicio!.", Toast.LENGTH_SHORT).show();
                     return true;
 
                 //CASO BOTON PERFIL
                 case R.id.btMenuItemProfile:
-                    Toast.makeText(MainActivity.this, "Ya estás en Inicio!.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, ProfileActivity.class));
                     return true;
 
                 //CASO BOTON SOBRE NOSOTROS
