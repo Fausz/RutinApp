@@ -3,10 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/btLogOutMenu"
+        android:id="@+id/btMenuItemLogOut"
         android:icon="@android:drawable/ic_lock_power_off"
-        android:title="@string/loginLogOut"
+        android:title="@string/btMenuItemLogOut"
         app:showAsAction="always" />
-    <item android:title="Item" />
-    <item android:title="Item" />
+    <item
+        android:id="@+id/btMenuItemHome"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/btMenuItemHome"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/btMenuItemProfile"
+        android:title="@string/btMenuItemProfile" />
+    <item
+        android:id="@+id/btMenuItemAbout"
+        android:title="@string/btMenuItemAboutUs" />
 </menu>

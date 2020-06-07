@@ -1,14 +1,33 @@
 <resources>
     <string name="app_name">RutinApp</string>
+    <!--SingUpActivity y SingInActivity-->
     <string name="registerName">Nombre</string>
     <string name="registerEmail">Email</string>
     <string name="registerPsswrd">Contraseña</string>
     <string name="registerSignUp">Registrar</string>
     <string name="registerSignIn">Acceder a mi cuenta</string>
-    <string name="loginLogOut">Cerrar Sesión</string>
     <string name="loginLogIn">Iniciar Sesión</string>
+
+    <!--Main-->
+    <string name="btWorkoutsMain">VER EJERCICIOS</string>
+    <string name="btNewWorkoutMain">CREAR RUTINA</string>
+    <string name="btEditWorkoutMain">MODIFICAR RUTINA</string>
+    <string name="btDelWorkoutMain">ELIMINAR RUTINA</string>
+
+    <!--Menu-->
+    <string name="btMenuItemLogOut">Cerrar Sesión</string>
+    <string name="btMenuItemHome">Inicio</string>
+    <string name="btMenuItemProfile">Perfil</string>
+    <string name="btMenuItemAboutUs">Sobre Nosotros</string>
+
+    <!--item_workouts-->
+    <string name="tvNameWorkouts">Ejercicio</string>
+    <string name="tvGroupWorkouts">Músculo</string>
+
+    <!--WorkoutsDetails-->
     <string name="tvNameDetails">Nombre:</string>
     <string name="tvGroupDetails">Grupo:</string>
     <string name="tvDescriptionDetails">Descripción:</string>
+    <string name="tvText">TextView</string>
 
 </resources>

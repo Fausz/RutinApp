@@ -30,11 +30,11 @@
         app:srcCompat="@drawable/ic_search_black_24dp" />
 
     <Button
-        android:id="@+id/btWorkouts"
+        android:id="@+id/btWorkoutsMain"
         android:layout_width="285dp"
         android:layout_height="50dp"
         android:background="@color/color2"
-        android:text="VER EJERCICIOS"
+        android:text="@string/btWorkoutsMain"
         app:layout_constraintBottom_toBottomOf="@+id/ivIcSeeWorkouts"
         app:layout_constraintStart_toEndOf="@+id/ivIcSeeWorkouts"
         app:layout_constraintTop_toTopOf="@+id/ivIcSeeWorkouts" />
@@ -49,11 +49,11 @@
         app:srcCompat="@drawable/ic_add_circle_outline_black_24dp" />
 
     <Button
-        android:id="@+id/btNewWorkout"
+        android:id="@+id/btNewWorkoutMain"
         android:layout_width="285dp"
         android:layout_height="50dp"
         android:background="@color/color2"
-        android:text="CREAR RUTINA"
+        android:text="@string/btNewWorkoutMain"
         app:layout_constraintBottom_toBottomOf="@+id/ivIcNewWorkout"
         app:layout_constraintStart_toEndOf="@+id/ivIcNewWorkout"
         app:layout_constraintTop_toTopOf="@+id/ivIcNewWorkout" />
@@ -68,11 +68,11 @@
         app:srcCompat="@drawable/ic_edit_black_24dp" />
 
     <Button
-        android:id="@+id/btEditWorkout"
+        android:id="@+id/btEditWorkoutMain"
         android:layout_width="285dp"
         android:layout_height="50dp"
         android:background="@color/color2"
-        android:text="MODIFICAR RUTINA"
+        android:text="@string/btEditWorkoutMain"
         app:layout_constraintBottom_toBottomOf="@+id/ivIcEditWorkout"
         app:layout_constraintStart_toEndOf="@+id/ivIcEditWorkout"
         app:layout_constraintTop_toTopOf="@+id/ivIcEditWorkout" />
@@ -87,11 +87,11 @@
         app:srcCompat="@drawable/ic_delete_black_24dp" />
 
     <Button
-        android:id="@+id/btDelWorkout"
+        android:id="@+id/btDelWorkoutMain"
         android:layout_width="285dp"
         android:layout_height="50dp"
         android:background="@color/color2"
-        android:text="ELIMINAR RUTINA"
+        android:text="@string/btDelWorkoutMain"
         app:layout_constraintBottom_toBottomOf="@+id/ivIcDelWorkout"
         app:layout_constraintStart_toEndOf="@+id/ivIcDelWorkout"
         app:layout_constraintTop_toTopOf="@+id/ivIcDelWorkout" />

@@ -2,22 +2,32 @@ package net.iesochoa.rutinapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
 
 import net.iesochoa.rutinapp.R;
 import net.iesochoa.rutinapp.models.Workouts;
 
 public class WorkoutsDetailsActivity extends AppCompatActivity {
 
+    //OBJETO WORKOUTS
     private Workouts view;
+
+    //VARIABLES TIPO VIEW
     private TextView tvName;
     private TextView tvGroup;
     private TextView tvDescription;
     private ImageView ivImg;
+
+    private FirebaseAuth mAuth;
 
     //VARIABLE GLOBAL CON LA CUAL SE RECIBE EL OBJETO A MOSTRAR EN ESTA ACTIVITY
     public static final String EXTRA_MOSTRAR_DATOS = "net.iessochoa.rutinapp.details";
@@ -27,12 +37,22 @@ public class WorkoutsDetailsActivity extends AppCompatActivity {
          * CONSTRUCTOR POR DEFECTO
          */
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /**
+         * MÉTODO PARA INFLAR EL MENÚ
+         */
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workouts_details);
 
+        //INSTANCIA DE FIREBASE DE LOGEO
+        mAuth = FirebaseAuth.getInstance();
         //SETEO DEL OBJETO RECIBIDO
         view = (Workouts) getIntent().getSerializableExtra(EXTRA_MOSTRAR_DATOS);
 
@@ -51,4 +71,48 @@ public class WorkoutsDetailsActivity extends AppCompatActivity {
         Glide.with(this).load(view.getImg()).into(ivImg);
 
     }//FIN onCreate
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //OPCIONES DEL MENÚ
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        /**
+         * MÉTODO PARA ASOCIAR UN METODO ONCLICK EN EL VIEW QUE SE ASOCIE SU ID.
+         */
+        switch (item.getItemId()) {
+            //CASO BOTON CERRAR SESIÓN
+            case R.id.btMenuItemLogOut:
+                cerrarSesion();
+                return true;
+
+            //CASO BOTON INICIO
+            case R.id.btMenuItemHome:
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
+
+            //CASO BOTON PERFIL
+            case R.id.btMenuItemProfile:
+                Toast.makeText(WorkoutsDetailsActivity.this,"Función Perfil en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                return true;
+
+            //CASO BOTON SOBRE NOSOTROS
+            case R.id.btMenuItemAbout:
+                Toast.makeText(WorkoutsDetailsActivity.this,"Función Sobre Nosotros en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }//FIN onOptionsItemSelected
+
+    private void cerrarSesion(){
+        /**
+         * MÉTODO PARA CERRAR SESIÓN
+         */
+
+        //SE CIERRA SESIÓN
+        mAuth.signOut();
+
+        //REDIRECCIÓN A LA PÁGINA DE LOGIN
+        startActivity(new Intent(WorkoutsDetailsActivity.this, SignInActivity.class));
+        finish();
+    }//FIN cerrarSesion
 }//FIN CLASE WorkoutsDetailsActivity

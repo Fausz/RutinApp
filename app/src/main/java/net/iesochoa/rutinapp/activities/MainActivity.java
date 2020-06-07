@@ -17,10 +17,14 @@ import net.iesochoa.rutinapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    //OBJETOS VIEW
+    //OBJETOS VIEW MENÚ
     private Button btLogOutMenu;
-    private Button btWorkouts;
+    private Button btMenuItemHome;
+    private Button btMenuItemProfile;
+    private Button btMenuItemAbout;
 
+    //OBJETOS VIEW MAIN
+    private Button btWorkouts;
     private Button btNewWorkout;
     private Button btEditWorkout;
     private Button btDelWorkout;
@@ -38,14 +42,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //INSTANCIA DE FIREBASE
+        //INSTANCIA DE FIREBASE DE LOGEO
         mAuth = FirebaseAuth.getInstance();
 
-        //INSTANCIA DE VIEWS
-        btWorkouts = (Button) findViewById(R.id.btWorkouts);
-        btNewWorkout = (Button) findViewById(R.id.btNewWorkout);
-        btEditWorkout = (Button) findViewById(R.id.btEditWorkout);
-        btDelWorkout = (Button) findViewById(R.id.btDelWorkout);
+        //INSTANCIA DE VIEWS DEL MENÚ
+        btLogOutMenu = (Button) findViewById(R.id.btMenuItemLogOut);
+        btMenuItemHome = (Button) findViewById(R.id.btMenuItemHome);
+        btMenuItemProfile = (Button) findViewById(R.id.btMenuItemProfile);
+        btMenuItemAbout = (Button) findViewById(R.id.btMenuItemAbout);
+
+        //INSTANCIA DE VIEWS DEL MAIN
+        btLogOutMenu = (Button) findViewById(R.id.btMenuItemLogOut);
+        btWorkouts = (Button) findViewById(R.id.btWorkoutsMain);
+        btNewWorkout = (Button) findViewById(R.id.btNewWorkoutMain);
+        btEditWorkout = (Button) findViewById(R.id.btEditWorkoutMain);
+        btDelWorkout = (Button) findViewById(R.id.btDelWorkoutMain);
         ivLogoMain = (ImageView) findViewById(R.id.ivLogoMain);
         ivIcNewWorkout = (ImageView) findViewById(R.id.ivIcNewWorkout);
         ivIcEditWorkout = (ImageView) findViewById(R.id.ivIcEditWorkout);
@@ -112,10 +123,24 @@ public class MainActivity extends AppCompatActivity {
              */
             switch (item.getItemId()) {
                 //CASO BOTON CERRAR SESIÓN
-                case R.id.btLogOutMenu:
+                case R.id.btMenuItemLogOut:
                     cerrarSesion();
                     return true;
 
+                //CASO BOTON INICIO
+                case R.id.btMenuItemHome:
+                    startActivity(new Intent(this, MainActivity.class));
+                    return true;
+
+                //CASO BOTON PERFIL
+                case R.id.btMenuItemProfile:
+                    Toast.makeText(MainActivity.this,"Función en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                    return true;
+
+                //CASO BOTON SOBRE NOSOTROS
+                case R.id.btMenuItemAbout:
+                    Toast.makeText(MainActivity.this,"h en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                    return true;
             }
             return super.onOptionsItemSelected(item);
         }//FIN onOptionsItemSelected

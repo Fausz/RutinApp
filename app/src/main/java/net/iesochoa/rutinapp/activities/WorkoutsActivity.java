@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,7 +43,17 @@ public class WorkoutsActivity extends AppCompatActivity {
     //OBJETO FIREBASE PARA EL MANEJO DE LA BASE DE DATOS REALTIME
     private DatabaseReference mDatabase;
 
+    //OBJETO FIREBASE AUTH PARA LA IDENTIFICACIÓN DE FIREBASE
+    private FirebaseAuth mAuth;
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /**
+         * MÉTODO PARA INFLAR EL MENÚ
+         */
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +62,9 @@ public class WorkoutsActivity extends AppCompatActivity {
 
         //DECLARACIÓN DE REFERENCIA A LA BD
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        //INSTANCIA DE FIREBASE DE LOGEO
+        mAuth = FirebaseAuth.getInstance();
 
         //OBTENEMOS REFERENCIAS
         mRecyclerView = (RecyclerView) findViewById(R.id.rvListWorkouts);
@@ -105,4 +121,49 @@ public class WorkoutsActivity extends AppCompatActivity {
             }
         });//FIN EVENTO addValueEventListener
     }//FIN getWorkoutsFromFirebase
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //OPCIONES DEL MENÚ
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        /**
+         * MÉTODO PARA ASOCIAR UN METODO ONCLICK EN EL VIEW QUE SE ASOCIE SU ID.
+         */
+        switch (item.getItemId()) {
+            //CASO BOTON CERRAR SESIÓN
+            case R.id.btMenuItemLogOut:
+                cerrarSesion();
+                return true;
+
+            //CASO BOTON INICIO
+            case R.id.btMenuItemHome:
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
+
+            //CASO BOTON PERFIL
+            case R.id.btMenuItemProfile:
+                Toast.makeText(WorkoutsActivity.this,"Función Perfil en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                return true;
+
+            //CASO BOTON SOBRE NOSOTROS
+            case R.id.btMenuItemAbout:
+                Toast.makeText(WorkoutsActivity.this,"Función Sobre Nosotros en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }//FIN onOptionsItemSelected
+
+    private void cerrarSesion(){
+        /**
+         * MÉTODO PARA CERRAR SESIÓN
+         */
+
+        //SE CIERRA SESIÓN
+        mAuth.signOut();
+
+        //REDIRECCIÓN A LA PÁGINA DE LOGIN
+        startActivity(new Intent(WorkoutsActivity.this, SignInActivity.class));
+        finish();
+    }//FIN cerrarSesion
 }//FIN WorkoutsActivity
