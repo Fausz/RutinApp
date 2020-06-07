@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color2"
+    tools:context=".activities.WorkoutsDetailsActivity">
+
+    <ImageView
+        android:id="@+id/ivImgWkDetails"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/tvNameDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/tvNameDetails"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivImgWkDetails"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNameWkDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameDetails"
+        app:layout_constraintStart_toEndOf="@+id/tvNameDetails"
+        app:layout_constraintTop_toTopOf="@+id/tvNameDetails" />
+
+    <TextView
+        android:id="@+id/tvGroupDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/tvGroupDetails"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameWkDetails"
+        app:layout_constraintEnd_toStartOf="@+id/tvGroupWkDetails"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvGroupWkDetails"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="120dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/tvGroupDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvGroupDetails" />
+
+    <TextView
+        android:id="@+id/tvDescriptionDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="@string/tvDescriptionDetails"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvNameDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvGroupDetails" />
+
+    <TextView
+        android:id="@+id/tvDescriptionWkDetails"
+        android:layout_width="345dp"
+        android:layout_height="264dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="@+id/tvDescriptionDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionDetails" />
+</androidx.constraintlayout.widget.ConstraintLayout>

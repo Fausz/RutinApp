@@ -21,9 +21,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.SignInActivity" />
-        <activity android:name=".activities.ProfileActivity" />
-        <activity android:name=".activities.SignUpActivity" />
+        <activity android:name=".activities.SignInActivity">
+        </activity>
+        <activity android:name=".activities.ProfileActivity">
+        </activity>
+        <activity android:name=".activities.SignUpActivity">
+        </activity>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
