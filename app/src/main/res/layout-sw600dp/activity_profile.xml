@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".activities.ProfileActivity">
+
+    <TextView
+        android:id="@+id/tvTittleProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="@string/tvTittleProfile"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitleNameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="104dp"
+        android:text="@string/tvTitleNameProfile"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTittleProfile" />
+
+    <TextView
+        android:id="@+id/tvSubNameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvText"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitleSubNameProfile"
+        app:layout_constraintStart_toEndOf="@+id/tvTitleSubNameProfile"
+        app:layout_constraintTop_toTopOf="@+id/tvTitleSubNameProfile" />
+
+    <TextView
+        android:id="@+id/tvTitleSubNameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/tvTitleSubNameProfile"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="@+id/tvTitleNameProfile"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleNameProfile" />
+
+    <TextView
+        android:id="@+id/tvNameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvText"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitleNameProfile"
+        app:layout_constraintStart_toEndOf="@+id/tvTitleNameProfile"
+        app:layout_constraintTop_toTopOf="@+id/tvTitleNameProfile" />
+
+    <TextView
+        android:id="@+id/tvTitleEmailProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/tvTitleEmailProfile"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="@+id/tvTitleSubNameProfile"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleSubNameProfile" />
+
+    <TextView
+        android:id="@+id/tvEmailProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvText"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitleEmailProfile"
+        app:layout_constraintStart_toEndOf="@+id/tvTitleEmailProfile"
+        app:layout_constraintTop_toTopOf="@+id/tvTitleEmailProfile" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

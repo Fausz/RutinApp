@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color1"
+    tools:context=".activities.MainActivity">
+
+    <ImageView
+        android:id="@+id/ivLogoMain"
+        android:layout_width="323dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/ivIcSeeWorkouts"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="144dp"
+        app:layout_constraintStart_toStartOf="@+id/ivLogoMain"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoMain"
+        app:srcCompat="@drawable/ic_search_black_24dp" />
+
+    <Button
+        android:id="@+id/btWorkoutsMain"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:background="@color/color2"
+        android:text="@string/btWorkoutsMain"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcSeeWorkouts"
+        app:layout_constraintStart_toEndOf="@+id/ivIcSeeWorkouts"
+        app:layout_constraintTop_toTopOf="@+id/ivIcSeeWorkouts" />
+
+    <ImageView
+        android:id="@+id/ivIcNewWorkout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/ivIcSeeWorkouts"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcSeeWorkouts"
+        app:srcCompat="@drawable/ic_add_circle_outline_black_24dp" />
+
+    <Button
+        android:id="@+id/btNewWorkoutMain"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:background="@color/color2"
+        android:text="@string/btNewWorkoutMain"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcNewWorkout"
+        app:layout_constraintStart_toEndOf="@+id/ivIcNewWorkout"
+        app:layout_constraintTop_toTopOf="@+id/ivIcNewWorkout" />
+
+    <ImageView
+        android:id="@+id/ivIcEditWorkout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/ivIcNewWorkout"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcNewWorkout"
+        app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+    <Button
+        android:id="@+id/btEditWorkoutMain"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:background="@color/color2"
+        android:text="@string/btEditWorkoutMain"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcEditWorkout"
+        app:layout_constraintStart_toEndOf="@+id/ivIcEditWorkout"
+        app:layout_constraintTop_toTopOf="@+id/ivIcEditWorkout" />
+
+    <ImageView
+        android:id="@+id/ivIcDelWorkout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/ivIcEditWorkout"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcEditWorkout"
+        app:srcCompat="@drawable/ic_delete_black_24dp" />
+
+    <Button
+        android:id="@+id/btDelWorkoutMain"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:background="@color/color2"
+        android:text="@string/btDelWorkoutMain"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcDelWorkout"
+        app:layout_constraintStart_toEndOf="@+id/ivIcDelWorkout"
+        app:layout_constraintTop_toTopOf="@+id/ivIcDelWorkout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
