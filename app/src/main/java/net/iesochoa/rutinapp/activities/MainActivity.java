@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     //OBJETOS VIEW MAIN
     private Button btWorkouts;
     private Button btNewWorkout;
+    private Button btSeeWorkout;
     private Button btEditWorkout;
     private Button btDelWorkout;
     private ImageView ivIcSeeWorkouts;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         //INSTANCIA DE VIEWS DEL MAIN
         btLogOutMenu = (Button) findViewById(R.id.btMenuItemLogOut);
         btWorkouts = (Button) findViewById(R.id.btWorkoutsMain);
+        btSeeWorkout = (Button) findViewById(R.id.btSeeWorkoutMain);
         btNewWorkout = (Button) findViewById(R.id.btNewWorkoutMain);
         btEditWorkout = (Button) findViewById(R.id.btEditWorkoutMain);
         btDelWorkout = (Button) findViewById(R.id.btDelWorkoutMain);
@@ -74,6 +76,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //EVENTO ONCLICK DEL BOTON EJERCICIOS
+        btSeeWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this,"Función en mantenimiento, disculpa las molestias.",Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         //EVENTO ONCLICK DEL BOTON CREAR RUTINA
         btNewWorkout.setOnClickListener(new View.OnClickListener() {

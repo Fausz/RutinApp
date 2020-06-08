@@ -42,11 +42,30 @@
         android:id="@+id/ivIcNewWorkout"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@+id/ivIcSeeWorkouts"
-        app:layout_constraintTop_toBottomOf="@+id/ivIcSeeWorkouts"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/ivIcSeeWorkoutMain"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcSeeWorkoutMain"
         app:srcCompat="@drawable/ic_add_circle_outline_black_24dp" />
 
+    <ImageView
+        android:id="@+id/ivIcSeeWorkoutMain"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivIcNewWorkout"
+        app:layout_constraintStart_toStartOf="@+id/ivIcSeeWorkouts"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcSeeWorkouts"
+        app:srcCompat="@drawable/ic_wallpaper_black_24dp" />
+
+    <Button
+        android:id="@+id/btSeeWorkoutMain"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:background="@color/color2"
+        android:text="@string/btSeeWorkoutMain"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcSeeWorkoutMain"
+        app:layout_constraintStart_toEndOf="@+id/ivIcSeeWorkoutMain"
+        app:layout_constraintTop_toTopOf="@+id/ivIcSeeWorkoutMain" />
     <Button
         android:id="@+id/btNewWorkoutMain"
         android:layout_width="285dp"
@@ -61,7 +80,7 @@
         android:id="@+id/ivIcEditWorkout"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/ivIcNewWorkout"
         app:layout_constraintTop_toBottomOf="@+id/ivIcNewWorkout"
         app:srcCompat="@drawable/ic_edit_black_24dp" />
@@ -80,7 +99,7 @@
         android:id="@+id/ivIcDelWorkout"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/ivIcEditWorkout"
         app:layout_constraintTop_toBottomOf="@+id/ivIcEditWorkout"
         app:srcCompat="@drawable/ic_delete_black_24dp" />

@@ -17,6 +17,7 @@
     <string name="btNewWorkoutMain">CREAR RUTINA</string>
     <string name="btEditWorkoutMain">MODIFICAR RUTINA</string>
     <string name="btDelWorkoutMain">ELIMINAR RUTINA</string>
+    <string name="btSeeWorkoutMain">VER RUTINAS</string>
 
     <!--Menu-->
     <string name="btMenuItemLogOut">Cerrar Sesión</string>
@@ -47,6 +48,7 @@
     <string name="tvTitleNameProfile">Nombre:</string>
     <string name="tvTitleSubNameProfile">Apellidos:</string>
     <string name="tvTitleEmailProfile">Correo:</string>
+
 
 
 </resources>
