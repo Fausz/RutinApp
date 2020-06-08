@@ -39,7 +39,7 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
     //ARRAYLIST CON TODOS LOS OBJETOS EJERCICIO QUE OBTENEMOS DE LA BD
     private ArrayList<Workouts> workoutsList;
 
-    public WorkoutsAdapter(Context applicationContext,ArrayList<Workouts> workoutsList, int resource){
+    public WorkoutsAdapter(Context applicationContext, ArrayList<Workouts> workoutsList, int resource) {
         /**
          * CONSTRUCTOR QUE RECIBE UNA LISTA DE EJERCICIOS
          */
@@ -58,7 +58,7 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
          */
 
         //OBTENEMOS LA VISTA XML Y LA INFLAMOS PASANDOLE UNA VARIABLE ENTERA CON EL IDENTIFICADOR
-        View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent, false);
 
         //RETORNAMOS LA VISTA
         return new ViewHolder(view);
@@ -120,10 +120,10 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
             public void onClick(View v) {
 
                 //INTENT CON EL CONTEXTO DE LA ACTIVITY
-                Intent intent = new Intent(mContext,WorkoutsDetailsActivity.class);
+                Intent intent = new Intent(mContext, WorkoutsDetailsActivity.class);
 
                 //SETEO EL OBJETO DEL ITEM SELECCIONADO AL INTENT PARA ENVIAR A LA ACTIVITY WORKOUTSDETAILSACTIVITY MEDIANTE LA VARIABLE EXTRA_MOSTRAR_DATOS(EN LA ACTIVITY DESTINO)
-                intent.putExtra(EXTRA_MOSTRAR_DATOS,workouts);
+                intent.putExtra(EXTRA_MOSTRAR_DATOS, workouts);
 
                 //NUEVA ACTIVIDAD EN NUEVA TAREA
                 mContext.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
@@ -139,7 +139,7 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
         return workoutsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         /**
          * CLASE INTERNA CON LAS REFERENCIAS DE NUESTRAS VISTAS A LOS ITEMS
          */
@@ -155,7 +155,7 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
              */
             //CON EL METODO SUPER LE PASAMOS LA VISTA
             super(view);
-            this.view=view;
+            this.view = view;
 
             //CASTEAMOS LOS VIEWS CON LA REFERENCIA DE LAS VISTAS
             this.tvNameWorkouts = (TextView) view.findViewById(R.id.tvNameWorkouts);

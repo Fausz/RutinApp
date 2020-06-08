@@ -46,14 +46,6 @@ public class WorkoutsActivity extends AppCompatActivity {
     //OBJETO FIREBASE AUTH PARA LA IDENTIFICACIÓN DE FIREBASE
     private FirebaseAuth mAuth;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        /**
-         * MÉTODO PARA INFLAR EL MENÚ
-         */
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +69,8 @@ public class WorkoutsActivity extends AppCompatActivity {
 
 
     }//FIN onCreate
-    private void getWorkoutsFromFirebase(){
+
+    private void getWorkoutsFromFirebase() {
         /**
          * MÉTODO QUE OBTIENE LOS DATOS DE FIREBASE
          */
@@ -87,10 +80,10 @@ public class WorkoutsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //SI EL NODO HIJO EXISTE
-                if(dataSnapshot.exists()){
+                if (dataSnapshot.exists()) {
 
                     //RECORREMOS CON UN FOREACH TODOS LOS OBJETOS WORKOUTS
-                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
                         //GUARDAMOS EN VARIABLES EL CONTENIDO DE CADA OBJETO
                         String name = ds.child("Name").getValue().toString();
@@ -99,19 +92,18 @@ public class WorkoutsActivity extends AppCompatActivity {
                         String img = ds.child("Img").getValue().toString();
 
                         //SE AÑADE UN NUEVO OBJETO A LA LISTA
-                        workoutsList.add(new Workouts(name,group,description,img));
+                        workoutsList.add(new Workouts(name, group, description, img));
                     }
 
-                    //mAdapter = new WorkoutsAdapter(workoutsList, R.layout.item_workouts);
 
                     //INSTANCIA DEL ADAPTER
-                    mAdapter = new WorkoutsAdapter(getApplicationContext(),workoutsList,R.layout.item_workouts);
+                    mAdapter = new WorkoutsAdapter(getApplicationContext(), workoutsList, R.layout.item_workouts);
 
                     //RECYCLER VIEW IMPLEMENTA EL ADAPTADOR
                     mRecyclerView.setAdapter(mAdapter);
 
-                }else{
-                    Toast.makeText(WorkoutsActivity.this,"No se ha encontrado el nodo buscado en la BD.",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(WorkoutsActivity.this, "No se ha encontrado el nodo buscado en la BD.", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -125,6 +117,16 @@ public class WorkoutsActivity extends AppCompatActivity {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //OPCIONES DEL MENÚ
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /**
+         * MÉTODO PARA INFLAR EL MENÚ
+         */
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         /**
@@ -154,7 +156,7 @@ public class WorkoutsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }//FIN onOptionsItemSelected
 
-    private void cerrarSesion(){
+    private void cerrarSesion() {
         /**
          * MÉTODO PARA CERRAR SESIÓN
          */
